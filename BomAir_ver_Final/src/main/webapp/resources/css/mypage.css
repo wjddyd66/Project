@@ -1,0 +1,95 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,900');
+@import url('https://fonts.googleapis.com/css?family=Suez+One');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:700i');
+h1{
+	display:inline;
+    /*margin-left: -800px;*/
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #484848;
+    font-size: 48px;
+    font-weight:bold;
+}
+.container{
+	text-align:center;
+	margin-top:40px;
+	padding-bottom:10px;
+}
+.showMyInfo{
+
+}
+.hrCss{
+	border: solid 6px #7cc67c; 
+	width: 100%;
+}
+.basicFont{
+	font-family: 'Noto Sans KR', sans-serif;
+    color: #484848;
+    font-size: 20px;
+}
+.font_SuezOne{
+	font-family: 'Suez One', serif;
+}
+.font_NotoSerif{
+	font-family: 'Noto Serif', serif;
+}
+.form-control {
+    display: inline;
+    width: 66%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.btnArea{
+	text-align:center;
+	margin:40px 0 60px 0;
+}
+table{
+	width: 58%;
+	margin:auto;
+}
+tr{
+	padding: 50px;
+}
+td{
+	padding: 30px 25px;
+}
+td:first-child{
+	font-size:24px;
+	text-align: center;
+}
+.btn2 {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    margin: 20px 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 10px;
+    background-color: #ccc;
+    color: white;
+}
+.btn2-lg{
+	padding: 25px 50px;
+	font-size: 24px;
+}
+#area_pwd, #area_addr, #area_tel{
+	padding-top:27px;
+}

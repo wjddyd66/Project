@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="pack.mainpage.model.ReservationDto" alias="rdto" />
+		<typeAlias type="pack.guest.controller.GuestBean" alias="gformbean" />
+		<typeAlias type="pack.guest.model.GuestDto" alias="gdto" />
+		<typeAlias type="pack.gong.model.gongDto" alias="gong_dto" />
+		<typeAlias type="pack.gong.controller.gongBean" alias="gong_bean" />
+		 	<typeAlias type="pack.model.LineDto" alias="dto"/>
+ 	<typeAlias type="pack.model.BookDto" alias="bookdto"/>
+ 	<typeAlias type="pack.controller.LineBean" alias="formbean"/>
+ 	<typeAlias type="pack.controller.CompleteBean" alias="compbean"/>
+ 	
+ 	<typeAlias type="pack.controller.BookBean" alias="bookbean"/> 
+ 	
+ 	<typeAlias type="pack.mainpage.model.CheckinDto" alias="cdto" />
+ 	<typeAlias type="pack.mainpage.controller.CheckinBean" alias="cbean" />
+ 	<typeAlias type="pack.mainpage.model.CheckinUpdateDto" alias="c_updto" />
+ 	
+ 	<typeAlias type="pack.mainpage.model.SeatDto" alias="sdto" />	
+	<typeAlias type="pack.rent.model.RentDto" alias="rent_dto" />
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="pack/resource/DataMapper.xml" />
+	</mappers>
+</configuration>

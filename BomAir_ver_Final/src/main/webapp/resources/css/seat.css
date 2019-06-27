@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,900');
+@import url('https://fonts.googleapis.com/css?family=Suez+One');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:700i');
+.font_title{
+	padding-top: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #484848;
+    font-size: 42px;
+    font-weight: 900;
+}
+.basicFont{
+	font-family: 'Noto Sans KR', sans-serif;
+    color: #484848;
+    font-size: 20px;
+}
+.container{
+	text-align:center;
+}
+.showSeatArea{
+	
+}
+.btn-big{
+	padding: 25px 30px;
+    font-size: 20px;
+}
+.SeatTop{
+	margin-top: 40px;
+    padding-bottom: 40px;
+}
+.btn-primary {
+	background-image: -webkit-linear-gradient(top,#969696 0,#969696 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#969696),to(#969696));
+    background-image: linear-gradient(to bottom,#969696 0,#969696 100%);
+	background-repeat: repeat-x;
+    border-color: #245580;
+    color: #fff;
+    background-color: #969696;
+    border-color: #2e6da4;
+}
+.dispAlert{
+	color: #ff0000;
+}
+.css_btnSubmit{
+	padding-top: 30px;
+}
+.img_seat{
+	background-img: 
+}
+.hrCss{
+	border: solid 6px #7cc67c; 
+	width: 70%;
+}

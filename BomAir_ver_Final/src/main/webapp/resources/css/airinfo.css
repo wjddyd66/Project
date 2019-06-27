@@ -1,0 +1,72 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,900');
+@import url('https://fonts.googleapis.com/css?family=Suez+One');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:700i');
+body{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+h1, h2{
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #484848;
+    font-size: 42px;
+    text-align:center;
+}
+h4{
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #484848;
+    font-size:24px;
+}
+.container{
+	text-align:center;
+	margin-top:40px;
+}
+.hrCss{
+	border: solid 6px #7cc67c; 
+	width: 90%;
+	margin: auto;
+}
+.basicFont{
+	font-family: 'Noto Sans KR', sans-serif;
+    color: #484848;
+    font-size: 20px;
+}
+.font_SuezOne{
+	font-family: 'Suez One', serif;
+}
+.font_NotoSerif{
+	font-family: 'Noto Serif', serif;
+}
+table{
+	margin:auto;
+}
+th{
+	padding: 30px 40px;
+}
+td{
+	padding: 10px 15px;
+}
+.btn2 {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    margin: 20px 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 50px;
+    background-color: #7cc67c;
+    color: white;
+}
+.btn2-lg{
+	padding: 16px 20px;
+}
+.btnArea{
+	text-align:center;
+	margin:40px 0 60px 0;
+}

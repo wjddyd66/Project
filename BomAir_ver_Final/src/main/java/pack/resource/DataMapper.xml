@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev">
+
+	<select id="selectDepart" resultType="rdto">
+		select l_end, l_start,
+		o_sdate, o_price, o_soyo, o_stime from a_info_o a
+		inner join a_line b
+		on a.l_code = b.l_code where l_end=#{l_end} and
+		l_start=#{l_start} and
+		o_sdate=#{o_sdate}
+	</select>
+
+	<insert id="register_insertData" parameterType="gformbean">
+		insert into
+		guest_R
+		values(#{g_id},#{g_pwd},#{g_name},#{g_birth},#{g_addr},#{g_tel},#{g_mail})
+	</insert>
+
+	<select id="register_checkId" parameterType="String"
+		resultType="int">
+		select count(*) from guest_R where g_id=#{g_id}
+	</select>
+
+	<select id="login_LoginCheck" resultType="String"
+		parameterType="String">
+		select g_pwd from guest_r where g_id=#{userInputId}
+	</select>
+	
+	<select id="mypage_selectData" parameterType="String" resultType="gdto">
+		select * from guest_r where g_id=#{g_id}
+	</select>
+	
+	<update id="mypage_upData" parameterType="gformbean">
+		update guest_r 
+		set g_pwd=#{g_pwd}, g_name=#{g_name}, g_birth=#{g_birth}, g_addr=#{g_addr}, g_tel=#{g_tel}, g_mail=#{g_mail}
+		where g_id=#{g_id}
+	</update>
+	
+	<delete id="mypage_delData" parameterType="String">
+		delete from guest_r where g_id=#{g_id}
+	</delete>
+
+	<select id="gong_SelectData" resultType="gong_dto"
+		parameterType="hashmap">
+		select * from gong
+		<choose>
+			<when test="sword.equals('All')">
+
+			</when>
+			<otherwise>
+				where title like concat('%',#{sword},'%')
+			</otherwise>
+		</choose>
+		order by num desc
+	</select>
+
+	<select id="gong_Pagesu" resultType="int"
+		parameterType="hashmap">
+		select count(num) from gong
+		<choose>
+			<when test="sword.equals('All')">
+			</when>
+			<otherwise>
+				where title like concat('%',#{sword},'%')
+			</otherwise>
+		</choose>
+		order by num desc
+	</select>
+
+	<select id="gong_SelectDataMain" resultType="gong_dto">
+		select *
+		from gong
+		order by num desc limit 4
+	</select>
+
+	<insert id="gong_register" parameterType="gong_dto">
+		insert into gong
+		values(#{num},#{title},#{con},0,#{bdate})
+	</insert>
+
+	<select id="maxnum" resultType="int">
+		select max(num) from gong
+	</select>
+
+	<select id="gong_detail" resultType="gong_dto"
+		parameterType="int">
+		select * from gong where num=#{num}
+	</select>
+
+	<update id="gong_num_update" parameterType="int">
+		update gong set
+		readcnt=readcnt+1 where num=#{num};
+	</update>
+
+	<delete id="gong_delete" parameterType="int">
+		delete from gong where
+		num=#{num}
+	</delete>
+
+	<update id="gong_update_form" parameterType="gong_dto">
+		update gong set
+		title=#{title},con=#{con},bdate=#{bdate} where num=#{num}
+	</update>
+
+	<select id="Mail_Address" parameterType="String"
+		resultType="hashmap">
+		select g_mail from guest_r where g_id=#{id}
+	</select>
+
+	<!-- 동혁 -->
+	<select id="selectDataAll" resultType="dto">
+		select * from a_info_o
+	</select>
+
+	<select id="selectPart" resultType="dto" parameterType="String">
+		select *
+		from a_info_o where l_code=#{l_code}
+	</select>
+
+	<select id="datePart" resultType="dto" parameterType="formbean">
+		select *
+		from a_info_o where l_code=#{l_code} and o_sdate=#{o_sdate}
+	</select>
+
+	<select id="datePart_R" resultType="dto"
+		parameterType="formbean">
+		select * from a_info_o where l_code=#{l_code} and
+		o_sdate=#{o_sdate_R}
+	</select>
+
+	<insert id="insertData" parameterType="formbean">
+		insert into a_info_o
+		values(#{l_code}, #{air_name}, #{o_sdate}, #{o_price},
+		#{o_soyo},
+		#{o_stime})
+	</insert>
+
+	<select id="selectMaxT" resultType="String">
+		select max(cast(substring_index(t_no,'-',-1) as integer)) from a_book
+	</select>
+
+	<insert id="departIns" parameterType="compbean">
+		insert into a_book
+		values(#{t_no}, #{g_id}, #{a_name}, now(), #{pay}, null)
+	</insert>
+
+	<insert id="departIns_R" parameterType="compbean">
+		insert into a_book
+		values(#{t_no}, #{g_id}, #{a_name_R}, now(), #{pay},
+		null)
+	</insert>
+
+	<select id="bookDataPart" resultType="bookdto"
+		parameterType="String">
+		select * from a_book where g_id = #{g_id}
+	</select>
+
+	<select id="detailPart" resultType="bookdto"
+		parameterType="bookbean">
+		select * from a_book inner join a_info_o on
+		a_book.air_name =
+		a_info_o.air_name where t_no = #{t_no} and o_sdate =
+		#{o_sdate};
+	</select>
+
+	<select id="detaiName" resultType="hashmap"
+		parameterType="String">
+		select g_name from guest_r where g_id=#{g_id}
+	</select>
+
+	<!-- Id,Pwd find -->
+	<select id="register_findid" resultType="hashmap"
+		parameterType="hashmap">
+		select g_id from guest_r where g_name=#{g_name} and
+		g_tel=#{g_tel}
+	</select>
+
+	<select id="Mail_Pwd" resultType="hashmap"
+		parameterType="hashmap">
+		select g_mail,g_pwd from guest_r where g_id=#{g_id} and
+		g_name=#{g_name} and
+		g_tel=#{g_tel}
+	</select>
+
+
+	<!-- CheckIn : get Seat -->
+	<select id="seat_getData" resultType="sdto">
+		select s_no from ${value};
+	</select>
+
+	<!-- CheckIn : Insert seat info -->
+	<insert id="seat_insertData" parameterType="java.util.Map">
+		insert into ${seatTableName}(s_no,t_no,b_name,b_pp,g_id) values
+		<foreach collection="sList" item="s" index="index"
+			separator=",">(#{s.s_no},#{s.t_no},#{s.b_name},#{s.b_pp},#{s.g_id})
+		</foreach>
+	</insert>
+
+	<select id="checkin_selectCheckinData" parameterType="java.util.Map"
+		resultType="cdto">
+		select SUBSTR(t_no,2,8) as departDate, TABLE_NAME, s_no,
+		b_name, b_pp from
+		${seatTableName} join INFORMATION_SCHEMA.TABLES where
+		TABLE_NAME=#{seatTableName} and t_no=#{t_no}
+	</select>
+
+	<!-- Create SeatTable -->
+	<insert id="seat_createTalble" parameterType="java.util.Map">
+		${sql}
+	</insert>
+
+	<!-- Scheduler -->
+	<delete id="DailyDelete" parameterType="String">
+		DELETE FROM a_info_o
+		where STR_TO_DATE(O_sdate,'%Y-%m-%d') ${value}
+	</delete>
+
+	<delete id="DailyDelete2" parameterType="String">
+		${value}
+	</delete>
+
+	<!--Rent -->
+	<select id="rentAllData" parameterType="hashmap"
+		resultType="rent_dto">
+		select * from (select * from car where c_place = #{RentPlaceTd}) b where
+		r_no not in (select r_no from car_book where (c_daeil between
+		#{RentDateChoose} and #{ReturnDateChoose}) or (c_banil between
+		#{RentDateChoose} and #{ReturnDateChoose}))
+	</select>
+
+	<insert id="submitRent" parameterType="hashmap">
+		insert into car_book
+		values(#{r_no}, #{c_daeil},#{c_banil},#{g_id})
+	</insert>
+
+	<select id="myCarPage" parameterType="String"
+		resultType="rent_dto">
+		select c_image, c_name, c_jong, c_bun, c_color, c_price,
+		c_daeil, c_banil,
+		c_place from car a inner join car_book b on a.r_no =
+		b.r_no where g_id
+		= #{g_id}
+	</select>
+
+	<select id="admincarPage" resultType="rent_dto">
+		select a.r_no, c_image,
+		c_name, c_jong, c_bun, c_color, c_price, c_daeil,
+		c_banil, c_place,
+		g_id from car_book a inner join car b on a.r_no =
+		b.r_no;
+	</select>
+
+	<delete id="deleteRent" parameterType="hashmap">
+		delete from car_book where
+		r_no=#{r_no} and c_daeil=#{c_daeil} and
+		c_banil=#{c_banil} and
+		g_id=#{g_id}
+	</delete>
+	
+	<insert id="insertCar" parameterType="hashmap">
+		insert into car(c_name, c_jong, c_bun, c_color,c_price,c_image,c_place) values(#{c_name},#{c_jong}, #{c_bun}, #{c_color}, #{c_price}, #{c_image}, #{c_place})
+	</insert>
+	
+	<select id="carAll" resultType="rent_dto">
+		select * from car
+	</select>
+	
+	<delete id="deleteCar" parameterType="String">
+		delete from car where r_no = #{r_no}
+	</delete>
+	
+	<delete id="deleteCarRent" parameterType="String">
+		delete from car_book where r_no=#{r_no}
+	</delete>
+
+	<!-- 매출 -->
+	<select id="salesDataAll" resultType="bookdto">
+		select * from a_book order by ab_date
+	</select>
+	<select id="Datepay" resultType="bookdto">
+		select ab_date, sum(pay) as hap from a_book where substring(t_no,1,1)='D' group by ab_date
+	</select>
+	<select id="DatepayPart" resultType="bookdto" parameterType="String">
+		select * from a_book where ab_date=#{ab_date}
+	</select>
+	
+	<!-- Update SeatInfo in mybookpage -->
+	 <update id="book_upData" parameterType="c_updto">
+		update a_book set s_no=#{seatsNo} where g_id=#{g_id} and t_no=#{t_no};
+	 </update>
+	 
+	 <select id="book_selectData" parameterType="cbean" resultType="cdto">
+	    select s_no from ${TABLE_NAME} where g_id=#{g_id} and t_no=#{t_no};
+	 </select>
+	 
+</mapper>
+
