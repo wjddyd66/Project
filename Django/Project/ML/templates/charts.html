@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>서울 공공자전거 따릉이 분석</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="{% static 'vendor2/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="{% static 'vendor2/datatables/dataTables.bootstrap4.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'css/sb-admin.css' %}" rel="stylesheet">
+
+</head>
+
+<script language="javascript">
+    function showClock(){
+        var currentDate = new Date();
+        var divClock = document.getElementById("divClock");
+         
+        var msg = "update time : "+currentDate.getHours()+":"
+        msg += currentDate.getMinutes()+"";
+         
+        divClock.innerText = msg;
+        divClock2.innerText = msg;
+        divClock3.innerText = msg;
+        setTimeout(showClock,1000);
+    }
+</script>
+
+<body id="page-top" onload="showClock()">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">Seoul Bycle '따릉이' 분석</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="anal">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>따릉이 이용 분석</span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+
+        <!-- Area Chart Example-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Data Table</div>
+          <div class="card-body">
+            <div class="table-responsive">
+            <!-- 
+            <form>
+            x 좌표 : <input type="text">   y 좌표 : <input type="text"> 
+            <br><br>
+            </form>
+             -->
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr style="text-align: center;">
+                  	<th>상서보기</th>
+                    <th>x좌표</th>
+                    <th>y좌표</th>
+                    <th>Road(자전거도로)</th>
+                    <th>Popular(명소)</th>
+                    <th>Park(공원)</th>
+                    <th>River(강,하천)</th>
+                    <th>people(유동인구)</th>
+                    <th>Univ(대학교)</th>
+                    <th>등급</th>
+                  </tr>
+                  <tr>
+                </thead>
+                
+                <tfoot style="text-align: center">
+                  <tr id='result'>
+                  </tr>
+                </tfoot>
+                
+                <tbody>
+                  {% for s in result %}
+                  <tr>
+                  	<td style="text-align: center;"><a href="#" onclick='func({{ s.result4 }},{{ s.result3 }},{{ s.result2 }},{{ s.result5 }},{{ s.result1 }},{{ s.result6 }})'>★</a></td>
+                    <td>{{ s.x }}</td>	<!-- x좌표 -->
+                    <td>{{ s.y }}</td>	<!-- y좌표 -->
+                    <td>{{ s.result4 }} %</td>
+                    <td>{{ s.result3 }} %</td>
+                    <td>{{ s.result2 }} %</td>
+                    <td>{{ s.result5 }} %</td>
+                    <td>{{ s.result1 }} %</td>
+                    <td>{{ s.result6 }} %</td>			
+                    <td style="text-align: center;">{{ s.result7 }}</td>
+                  </tr>
+                  {% endfor %}                  
+                 </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="divClock2" class="card-footer small text-muted"></div>
+        </div>
+        
+        
+        </div>
+		
+		
+		
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fas fa-chart-bar"></i>
+                Bar Chart</div>
+              <div class="card-body">
+                <canvas id="myBarChart" width="100%" height="50"></canvas>
+              </div>
+              <div id="divClock3" class="card-footer small text-muted"></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fas fa-chart-pie"></i>
+                Pie Chart</div>
+              <div class="card-body">
+                <canvas id="myPieChart" width="100%" height="100"></canvas>
+              </div>
+              <div id="divClock" class="card-footer small text-muted"></div>
+            </div>
+          </div>
+        </div>
+		<button class="btn btn-primary" type="button" data-dismiss="modal" style="width: 200px; position: absolute; left: 50%; margin-left: -100px;" onclick="location.href='../'">다시 위치 선택</button>
+		<button class="btn btn-secondary" type="button" data-dismiss="modal" style="width: 200px; position: absolute; left: 50%; margin-left: 150px;" onclick="location.href='../'">홈으로</button><br><br>
+
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>서울 자전거 렌트 '따릉이'분석</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'vendor2/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor2/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{% static 'vendor2/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="{% static 'vendor2/chart.js/Chart.min.js' %}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{% static 'js/sb-admin.min.js' %}"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+  <script>
+function func(var1,var2,var3,var4,var5,var6){
+	  
+  //Set new default font family and font color to mimic Bootstrap's default styling
+  Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+  Chart.defaults.global.defaultFontColor = '#292b2c';
+
+  // Bar Chart Example
+  var ctx = document.getElementById("myBarChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["Road(자전거도로)", "Popular(명소)", "Park(공원)", "River(강,하천)", "people(유동인구)", "Univ(대학교)"],
+      datasets: [{
+        label: "Revenue",
+        backgroundColor: ['yellow', '#dc3545', 'green', 'blue', 'navy', 'purple'],
+        borderColor: "rgba(2,117,216,1)",
+        data: [var1,var2,var3,var4,var5,var6],
+      }],
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          time: {
+            unit: 'month'
+          },
+          gridLines: {
+            display: false
+          },
+          ticks: {
+            maxTicksLimit: 6
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            min: 0,
+            max: 100,
+            maxTicksLimit: 5
+          },
+          gridLines: {
+            display: true
+          }
+        }],
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+  
+//Set new default font family and font color to mimic Bootstrap's default styling
+  Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+  Chart.defaults.global.defaultFontColor = '#292b2c';
+
+  // Pie Chart Example
+  var ctx = document.getElementById("myPieChart");
+  var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ["Road(자전거도로)", "Popular(명소)", "Park(공원)", "River(강,하천)", "people(유동인구)", "Univ(대학교)"],
+      datasets: [{
+        data: [var1,var2,var3,var4,var5,var6],
+        backgroundColor: ['yellow', '#dc3545', 'green', 'blue', 'navy', 'purple'],
+      }],
+    },
+  });
+}
+
+  </script>
+
+</body>
+
+</html>
