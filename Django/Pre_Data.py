@@ -93,14 +93,9 @@ for i in range(0, len(data_rental)):
             count=1
     
     people = sum/count
-    result1 = (people-0)/(412554-0)
-    result2 = (min1-0.03253)/(14.97119-0.03253)
-    result3 = (min2-0.06655)/(16.08754-0.06655)
-    result4 = (min4-0.04874)/(10.9346-0.04874)
-    result5 = (min3-0.03363)/(8.05676-0.03363)
-    result6 = (min5-0.14916)/(11.71905-0.14916)
+
     
-    print("대여소명: ", data_rental["name"][i], ", 근접공원: ", result1, ", 근접관광지: ", result2, 
-          ", 근접강가:", result3, ", 근접 자전거도로: ", result4, ", 근접대학교:", result5, ", 근접유동인구 평균: ", result6)
-    makeExcel(data_rental["name"][i], result1, result2, result3, result4, result5, result6)
+    print("대여소명: ", data_rental["name"][i], ", 근접공원: ", min1, ", 근접관광지: ", min2, 
+          ", 근접강가:", min3, ", 근접 자전거도로: ", min4, ", 근접대학교:", min5, ", 근접유동인구 평균: ",  people)
+    makeExcel(data_rental["name"][i], min1, min2, min3, min4, min5,  people)
 print("엑셀로 저장 완료")
