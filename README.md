@@ -4,7 +4,7 @@
 3. 논문 (Paper)
 
 
-**각코드에 대한 자세한 내용:<https://wjddyd66.github.io/projects/>**  
+**각코드에 대한 자세한 내용:<https://wjddyd66.github.io/categories/#project>**  
 연락처: wjddyd66@naver.com  
 
 
