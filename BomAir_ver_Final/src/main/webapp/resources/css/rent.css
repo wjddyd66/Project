@@ -1,0 +1,74 @@
+.custab {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin: 5% 0;
+	box-shadow: 3px 3px 2px #ccc;
+	transition: 0.5s;
+}
+img
+{
+width: 300px;
+/*height: 200px;*/	
+}
+
+#myModal input
+{
+	margin-bottom: 8px;
+		
+	width: 300px;
+}
+
+element.style {
+    width: 600 !important;
+    height: 370px !important;
+}
+
+@media (min-width: 576px){
+.modal-sm {
+    max-width: 800px !important;
+}
+}
+.row {
+	width:1300px;
+	
+}
+
+#rent_table{
+	width: 1200px;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+#rent_table tr th {
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+
+.custab:hover {
+	box-shadow: 3px 3px 0px transparent;
+	transition: 0.5s;
+}
+
+@media ( min-width : 992px) {
+	.col-md-6 {
+		width: 100% !important;
+	}
+}
+
+@media (min-width: 768px){
+.col-md-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 100% !important;
+}
+}
+
+@media (min-width: 992px){
+.col-md-offset-2 {
+     margin-left: 0px !important; 
+}
+}

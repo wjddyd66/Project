@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,900');
+@import url('https://fonts.googleapis.com/css?family=Suez+One');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:700i');
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #fff;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin{
+	display: inline;
+}
+
+.loginField{
+	padding-top: 25px;
+}
+
+.logo{
+    padding-top: 10px;
+    padding-left: 130px;
+    padding-bottom: 50px;
+}
+
+.btn-primary2 {
+	font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+    background-color: #7cc67c;
+}
+
+#imgLogin{
+	width: 390px;
+}
+
+.imgLogin{
+	padding-top: 20px;
+	padding-left: 500px;
+}
+
+.col-md-4{
+	position: relative;
+    min-height: 18px;
+    padding-right: 11px;
+    padding-left: 10px;
+    margin-left: 105px;
+    margin-top: 20px;
+}
+
+.linkToRegister{
+	color: #333;
+	margin-left: 290px;
+}
+
+#alertMessage{
+	color: #ff0000;
+}
+
+.imgRegisterOk{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.celebrateMessage{
+	padding-top: 20px;
+	text-align:center;
+}
+.basicFont{
+	font-family: 'Noto Sans KR', sans-serif;
+    color: #484848;
+    font-size: 19px;
+}
+.btn-lg2 {
+    padding: 25px 45px;
+    font-size: 20px;
+    line-height: 1.3333333;
+    border-radius: 49px;
+}

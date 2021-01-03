@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>따릉이 이용분석 프로젝트</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/agency.min.css' %}" rel="stylesheet">
+
+</head>
+<script>
+function tel(name){
+	if(name == "kim"){
+		var tel = document.getElementById('kim_info');
+		tel.value = 'tel : 010-2239-4730';
+	}else if(name == "an"){
+		var tel = document.getElementById('an_info');
+		tel.value = 'tel : 010-7743-7042';		
+	}else if(name == "jang"){
+		var tel = document.getElementById('jang_info');
+		tel.value = 'tel : 010-4963-9795';		
+	}else if(name == "chen"){
+		var tel = document.getElementById('chen_info');
+		tel.value = 'tel : 010-3343-7576';		
+	}else if(name == "pyo"){
+		var tel = document.getElementById('pyo_info');
+		tel.value = 'tel : 010-9016-8281';		
+	}else if(name == "hwang"){
+		var tel = document.getElementById('hwang_info');
+		tel.value = 'tel : 010-8947-2534';		
+	}
+
+}
+
+function email(name){
+	if(name == "kim"){
+		var email = document.getElementById('kim_info');
+		email.value = 'email : kdhdngk1@naver.com';
+	}else if(name == "an"){
+		var email = document.getElementById('an_info');
+		email.value = 'email : tkdals2111@naver.com';
+	}else if(name == "jang"){
+		var email = document.getElementById('jang_info');
+		email.value = 'email : ganzi927@naver.com';
+	}else if(name == "chen"){
+		var email = document.getElementById('chen_info');
+		email.value = 'email : mint3081@naver.com';
+	}else if(name == "pyo"){
+		var email = document.getElementById('pyo_info');
+		email.value = 'email : kamdung8281@naver.com';
+	}else if(name == "hwang"){
+		var email = document.getElementById('hwang_info');
+		email.value = 'email : wjddyd66@naver.com';
+	}
+
+}
+
+function go(){
+	alert("환영합니다! 서울 bike 따릉이 분석에 오신걸 환영합니다.");
+	location.href = 'map/';
+	
+}
+</script>
+
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style= "padding-top: 3px">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">The Analysis of Seoul bike</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio">technology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Seoul bike '따릉이'</div>
+        <div class="intro-heading text-uppercase">The Analysis of Project</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="javascript:go()">시작하기<br>(start)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Services</h2>
+          <h3 class="section-subheading text-muted">따릉이 대여소와 기타 요인간의 상관관계 분석</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">WEB페이지 구축</h4>
+          <p class="text-muted">django Framework를 이용하여 MTV모델의 의한 분석용 웹페이지 서비스 구축</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">적합도 분석</h4>
+          <p class="text-muted">R studio와 Python을 이용하여 지도 상 x값과, y값 좌표의 주소에 따른 6가지(Road(자전거도로), Popular(명소), Park(공원), River(강,하천), people(유동인구), Univ(대학교))에 대한 상관관계 분석</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">결과 측정 및 추론</h4>
+          <p class="text-muted">적합도와 분류분석을 통하여 해당 위치의 대여소 설치 적합도 결과 측정 및 추론</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="bg-light page-section" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Technology</h2>
+          <h3 class="section-subheading text-muted">'프로젝트 사용 기술'</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+          </a>
+          <div class="portfolio-caption">
+            <h4><a href="http://www.python.org">Python</a></h4>
+            <br>
+            <img src="{% static 'images/logos/python.jpg' %}">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+          </a>
+          <div class="portfolio-caption">
+            <h4><a href="https://www.djangoproject.com/">Django</a></h4>
+            <br>
+            <img src="{% static 'images/logos/django.jpg' %}">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+          </a>
+          <div class="portfolio-caption">
+            <h4><a href="https://www.eclipse.org">Eclipse</a></h4>
+            <br>
+            <img src="{% static 'images/logos/eclipse.jpg' %}">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+          </a>
+          <div class="portfolio-caption">
+            <h4><a href="https://www.rstudio.com/">R studio</a></h4>
+            <br>
+            <img src="{% static 'images/logos/r.jpg' %}">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+          </a>
+          <div class="portfolio-caption">
+            <h4><a href="https://www.javascript.com/">Jsp</a></h4>
+            <br>
+            <img src="{% static 'images/logos/jsp.jpg' %}">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+          </a>
+          <div class="portfolio-caption">
+            <h4><a href="https://getbootstrap.com/">BootStrap</a></h4>
+            <br>
+            <img src="{% static 'images/logos/bootstrap.jpg' %}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-light page-section" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+          <h3 class="section-subheading text-muted">'최강의 팀 정보'</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="team-member">
+            <h4>김동혁<br>(Donghyeok Kim)</h4>
+            <p class="text-muted">Wep Developer / Analysist</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="javascript:tel('kim');">☎
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:email('kim');">@
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://kiccampus.com/">kic
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+                <textarea rows="2" cols="25" id="kim_info" style="background-color:transparent;"></textarea>
+ 
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-sm-4">
+          <div class="team-member">
+            <h4>안상민<br>(Sangmin An)</h4>
+            <p class="text-muted">Wep Developer / Analysist</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="javascript:tel('an');">☎
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:email('an');">@
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://kiccampus.com/">kic
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+                <textarea rows="2" cols="25" id="an_info" style="background-color:transparent;"></textarea>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <h4>장보성<br>(Bosung Jang)</h4>
+            <p class="text-muted">Wep Developer / Analysist</p>
+            <ul class="list-inline social-buttons">
+			  <li class="list-inline-item">
+                <a href="javascript:tel('jang');">☎
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:email('jang');">@
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://kiccampus.com/">kic
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+                <textarea rows="2" cols="25" id="jang_info" style="background-color:transparent;"></textarea>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="team-member">
+            <h4>천지훈<br>(Jihoon Chen)</h4>
+            <p class="text-muted">Wep Developer / Analysist</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="javascript:tel('chen');">☎
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:email('chen');">@
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://kiccampus.com/">kic
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+                <textarea rows="2" cols="25" id="chen_info" style="background-color:transparent;"></textarea>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-sm-4">
+          <div class="team-member">
+            <h4>표종은<br>(Jongeun Pyo)</h4>
+            <p class="text-muted">Wep Developer / Analysist</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="javascript:tel('pyo');">☎
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:email('pyo');">@
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://kiccampus.com/">kic
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+                <textarea rows="2" cols="25" id="pyo_info" style="background-color:transparent;"></textarea>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <h4>황정용<br>(Jungyong Hwang)</h4>
+            <p class="text-muted">Wep Developer / Analysist</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="javascript:tel('hwang');">☎
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:email('hwang');">@
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://kiccampus.com/">kic
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+                <textarea rows="2" cols="25" id="hwang_info" style="background-color:transparent;"></textarea>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <span class="copyright">서울 자전거 렌트 '따릉이'분석</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#services">serv
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#portfolio">pf
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#team">team
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="#">The Analysis of Seoul bike</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

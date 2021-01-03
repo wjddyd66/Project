@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+
+	<context:component-scan
+		base-package="pack.mainpage.*" />
+	<context:component-scan
+		base-package="pack.guest.*" />
+	<context:component-scan
+		base-package="pack.gong.*" />
+	<context:component-scan
+		base-package="pack.mail.*" />
+	<context:component-scan
+		base-package="pack.controller" />
+	<context:component-scan
+		base-package="pack.model" />
+	<context:component-scan
+		base-package="pack.scheduler" />
+<context:component-scan base-package="pack.rent.*"/>
+	<context:component-scan base-package="pack.aspect"/>
+
+
+	<task:scheduler id="jobScheduler" pool-size="10" />
+
+	<task:annotation-driven scheduler="jobScheduler" />
+	<mvc:annotation-driven />
+	
+<aop:aspectj-autoproxy/>
+
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+<!-- Mail Properties -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:pack/mail/controller/mail.properties</value>
+		</property>
+	</bean>
+	
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${host}" /> <!-- smtp 서버명 -->
+		<property name="port" value="${port}" /> <!-- 포트 번호 -->
+		<property name="username" value="${username}" /> <!-- id(일반적인 id가 아니니 확인 필요) -->
+		<property name="password" value="${password}" /> <!-- 비밀번호 -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<mvc:resources mapping="/resources/**"
+		location="/resources/" />
+
+
+</beans>
