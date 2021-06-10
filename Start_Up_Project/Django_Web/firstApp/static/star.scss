@@ -1,0 +1,48 @@
+.blind {
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: none;
+  clip: rect(0, 0, 0, 0);
+}
+
+.startRadio {
+  display: inline-block;
+  overflow: hidden;
+  height: 40px;
+  &:after {
+    content: "";
+    display: block;
+    position: relative;
+    z-index: 10;
+    height: 40px;
+    background: url("https://blog.kakaocdn.net/dn/bcrVVz/btqC5oKc11N/PysUXzPm2mkJejIKdmgnTk/img.png")
+      repeat-x 0 0;
+    background-size: contain;
+    pointer-events: none;
+  }
+  &__box {
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 20px;
+    height: 40px;
+    cursor: pointer;
+    input {
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      position: absolute !important;
+
+      &:checked + .startRadio__img {
+        background-color: #0084ff;
+      }
+    }
+  }
+  &__img {
+    display: block;
+    position: absolute;
+    rig

@@ -1,0 +1,55 @@
+<style>
+  .starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}
+</style>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+  $('.starRev span').click(function(){
+    $(this).parent().children('span').removeClass('on');
+    $(this).addClass('on').prevAll('span').addClass('on');
+    console.log($(this).attr('id'));
+    document.getElementById('feedback_value').value = $(this).attr('id')
+    return false;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(function(){
+  $('.content').click(function(){
+    $('.content').hide();
+  });
+});
+</script>
+
+<h2 class="content">Result of Skin Cancer Model</h2>
+<img src={{result_path}} alt='imagename'>
+
+<form method="post" enctype="multipart/form-data" action="feedback">
+  <div class="starRev">
+    <span class="starR on" id="1">1</span>
+    <span class="starR" id="2">2</span>
+    <span class="starR" id="3">3</span>
+    <span class="starR" id="4">4</span>
+    <span class="starR" id="5">5</span>
+    <span class="starR" id="6">6</span>
+    <span class="starR" id="7">7</span>
+    <span class="starR" id="8">8</span>
+    <span class="starR" id="9">9</span>
+    <span class="starR" id="10">10</span>
+  </div>
+  <input type="hidden" name="feedback" value="0" id="feedback_value">
+  <input type="hidden" name="result_png" value={{result_path}} id="result_png">
+  <input type="submit" value="Submit" >
+</form>
